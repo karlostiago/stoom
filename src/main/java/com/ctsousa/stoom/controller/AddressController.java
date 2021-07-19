@@ -24,6 +24,7 @@ import com.ctsousa.stoom.entity.Address;
 import com.ctsousa.stoom.exception.AddressNotFoundException;
 import com.ctsousa.stoom.exception.BusinessException;
 import com.ctsousa.stoom.service.AddressService;
+import com.ctsousa.stoom.utility.ResourceUriHelper;
 
 @RestController
 @RequestMapping("/v1/address")
@@ -52,7 +53,9 @@ public class AddressController {
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public AddressDto add(@RequestBody @Valid AddressInput addressInput) {
 		Address address = addressDisassembler.toAddress(addressInput);
-		return addressAssembler.to(addressService.save(address));
+		AddressDto addressDto = addressAssembler.to(addressService.save(address));
+		ResourceUriHelper.addUriInResponseHeader(addressDto.getId());
+		return addressDto;
 	}
 	
 	@PutMapping("/{id}")
