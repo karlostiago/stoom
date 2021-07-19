@@ -42,7 +42,7 @@ public class AddressControllerTest extends AbstractApplicationTest {
 	public void shouldReturn200_WhenUpdate() {
 		
 		AddressInput body = (AddressInput)getBody();
-		body.setCity("US AMERICAN");
+		body.setCity("São Paulo");
 		
 		given()
 			.body(body)
@@ -93,14 +93,14 @@ public class AddressControllerTest extends AbstractApplicationTest {
 	
 	private Object getBody() {
 		AddressInput body = new AddressInput();
-		body.setCity("City");
+		body.setCity("Fortaleza");
 		body.setComplement("Complement");
-		body.setCountry("Country");
+		body.setCountry("Brasil");
 		body.setNeighbourhood("Neighbourhood");
-		body.setNumber("Number");
-		body.setState("State");
-		body.setStreetName("Street Name");
-		body.setZipCode("Zip Code");
+		body.setNumber("001");
+		body.setState("Ceara");
+		body.setStreetName("Rua 1");
+		body.setZipCode("60758191");
 		return body;
 	}
 }
