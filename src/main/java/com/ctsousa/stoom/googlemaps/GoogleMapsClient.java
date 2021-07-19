@@ -29,7 +29,7 @@ public class GoogleMapsClient {
 			.scheme(SCHEME)
 			.host(HOST)
 			.path(PATH)
-			.queryParam(QUERY_ADDRESS, "dsa")
+			.queryParam(QUERY_ADDRESS, address.toString())
 			.queryParam(QUERY_KEY, KEY_SECRET)
 			.build();
 		
